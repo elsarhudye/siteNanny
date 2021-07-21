@@ -1,6 +1,8 @@
 header {
-    background-image: url("../img/helloNanny2.jpg");
-    background-size: cover;
+    background-image: url("../img/images2.jpg");
+    background-size: contain;
+    background-position: center;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +10,7 @@ header {
     min-height: 50vh;
 }
 
-#festTitle, #festSent {
+/*#festTitle, #festSent {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-weight: 500;
@@ -33,4 +35,4 @@ header {
   #festSent {
     font-size: 2rem;
   }
-}
+}*/
