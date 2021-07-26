@@ -15,4 +15,12 @@ class NannyController extends AbstractController
             'controller_name' => 'NannyController',
         ]);
     }
+
+    #[Route('/nannies', name: 'nanny_liste')]
+    public function list(): Response
+    {
+        return $this->render('nanny/list.html.twig', [
+            'controller_name' => 'NannyController',
+        ]);
+    }
 }
