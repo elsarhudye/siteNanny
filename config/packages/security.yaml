@@ -35,5 +35,8 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+    #Tout ce qui va commencer par /admin aura le role adminstrateur
+    #Tout ce qui va commencer par /profil aura le role utulisateur
+    #Tout ce qui va commencer par /nanny aura le role d'une nanny
+         - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/profil, roles: ROLE_USER }

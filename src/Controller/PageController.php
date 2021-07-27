@@ -42,4 +42,10 @@ class PageController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+    #[Route('/recherche-une-nanny', name: 'page_recherche_une_nanny')]
+    public function recherche(Request $request): Response
+    {
+
+        return $this->render('page/liste.html.twig', []);
+    }
 }
