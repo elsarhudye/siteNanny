@@ -15,13 +15,11 @@ Jai fait ce projet afin de pouvoir valider mon diplome de developpeur backend en
 ## Conception
 
 - Diagramme de UML
-- MCD
-
-
-
 
 ![Alt text](./github_media/img1.png?raw=true "SiteNanny ")
 &nbsp;
+
+- MCD
 ![Alt text](./github_media/img2.png?raw=true "SiteNanny ")
 &nbsp;
 
