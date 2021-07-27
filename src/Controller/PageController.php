@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\CommentType;
+use App\Repository\NannyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,9 +44,12 @@ class PageController extends AbstractController
         ]);
     }
     #[Route('/recherche-une-nanny', name: 'page_recherche_une_nanny')]
-    public function recherche(Request $request): Response
+    public function recherche(Request $request, NannyRepository $nannyRepository): Response
     {
+        $nannies = $nannyRepository->findAll();
 
-        return $this->render('page/liste.html.twig', []);
+        return $this->render('page/liste.html.twig', [
+            'nannies' => $nannies
+        ]);
     }
 }

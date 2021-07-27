@@ -1,44 +1,36 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Liste des Nannies -
-	{{ nanny }}
+
 {% endblock %}
 
 {% block body %}
-	<h2>Fiche d'une nanny</h2>
-	<h3>{{ nanny }}</h3>
-	<h4>Nom:
-		{{ nanny.name }}</h4>
-	<h4>Prénom:
-		{{ nanny.firstname }}</h4>
-	<h4>Localisation:
-		{{ nanny.zipcode }}
-		-
-		{{ nanny.city }}
-	</h4>
-	<h4>Age:
-		{{ nanny.age }}
-		ans</h4>
+	<table class="table">
+		<thead>
+			<tr>
 
-	<h4>Présentation:</h4>
-	<p>Il n'y a aucune présentation disponible pour cette nanny.</p>
 
-	{% if nanny.photofilename %}
-		<img src="{{ asset('uploads/photos/' ~ nanny.photofilename) }}"/>
-	{% endif %}
+				<th scope="col">Name</th>
+				<th scope="col">City</th>
+				<th scope="col">Age</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for nanny in nannies %}
 
-	{% if comments|length > 0 %}
-		{% for comment in comments %}
 
-			<h4>{{ comment.author }}</h4>
-			<small>
-				{{ comment.createdAt|format_datetime('medium', 'short') }}
-			</small>
-			<p>{{ comment.text }}</p>
-		{% endfor %}
+				<tr>
 
-	{% else %}
-		<div>Pas de commentaire pour cette Nanny.</div>
-	{% endif %}
-	<h2>Racontez nous votre expérience</h2>
-	{{ form(comment_form) }}{% endblock %}
+					<td>{{ nanny.getName()}}</td>
+					<td>{{ nanny.getCity() }}</td>
+					<td>{{ nanny.getAge() }}
+						ans</td>
+				</tr>
+
+
+			{% endfor %}
+		</tbody>
+	</table>
+
+
+{% endblock %}
