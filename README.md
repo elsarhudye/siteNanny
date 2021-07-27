@@ -4,7 +4,7 @@
 
 # SiteNanny
 
-Jai fait ce projet afin de pouvoir valider mon diplome de developpeur backend en PHP et Symfony
+J'ai fait ce projet afin de pouvoir valider mon diplome de developpeur backend PHP et Symfony
 
 ## Summary
 
