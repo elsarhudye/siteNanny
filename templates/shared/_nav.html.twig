@@ -15,35 +15,45 @@
 								<span class="visually-hidden">(current)</span>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Type de gardes</a>
+						{#<li class="nav-item">#}
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="#">Sortie d'école</a>
+								<a class="dropdown-item" href="#">Sortie de crèche</a>
+								<a class="dropdown-item" href="#">Temps plein</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">Separated link</a>
+							</div>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{path('nanny_liste')}}">Listes des Nannies</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Contact</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Mon compte</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{path('app_logout')}}">Déconnexion</a>
-						</li>
-					{% else %}
-						<li class="nav-item">
-							<a class="nav-link active" href="{{path('app_register')}}">Créer un compte
-								<span class="visually-hidden">(current)</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{path('app_login')}}">Connexion</a>
-						</li>
-					{% endif %}
+
+					</li>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Recherche une Nanny</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{path('page_contact')}}">Contact</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Mon Profil</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{path('app_logout')}}">Deconnexion</a>
+				</li>
+			{% else %}
+				<li class="nav-item">
+					<a class="nav-link active" href="{{path('app_register')}}">Créer un compte
+						<span class="visually-hidden">(current)</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{path('app_login')}}">Connexion</a>
+				</li>
+			{% endif %}
 
 
-				</ul>
+		</ul>
 
-			</div>
-		</div>
-	</nav>
+	</div>
+</div></nav>

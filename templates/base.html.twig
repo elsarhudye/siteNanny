@@ -7,7 +7,7 @@
 			{% endblock %}
 		</title>
 		{# Run `composer require symfony/webpack-encore-bundle`
-																																																												           and uncomment the following Encore helpers to start using Symfony UX #}
+																																																																								           and uncomment the following Encore helpers to start using Symfony UX #}
 		{% block stylesheets %}
 			{#{{ encore_entry_link_tags('app') }}#}
 			<link rel="stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.css">
@@ -25,10 +25,14 @@
 		{% include "shared/_nav.html.twig" %}
 
 		{% include "shared/_header.html.twig" %}
+		{% if app.user %}
 
-		{% block searchbar %}
-			{% include "search/search.html.twig" %}
-		{% endblock %}
+			{% else %}
+				<h1>je ne suis pas connecté</h1>
+				{% block searchbar %}
+					{% include "search/search.html.twig" %}
+				{% endblock %}
+		{% endif %}
 
 		<div class="container my-5"> {% block body %}{% endblock %}
 			</div>
