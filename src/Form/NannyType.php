@@ -20,7 +20,7 @@ class NannyType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => "Enregistrer",
                 'attr' => [
-                    'class' => "btn btn-block btn-outline-dark btn-sm m-1 rounded",
+                    'class' => "btn btn-primary btn-sm btn-sm m-2",
                 ],
             ]);
     }

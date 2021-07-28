@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use EasyCorp\Bundle\EasyAdminBundle\Router\CrudUrlGenerator;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -19,7 +20,11 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
-        return parent::index();
+        //return parent::index();
+        $routeBuilder = $this->get(CrudUrlGenerator::class)->build();
+        $url = $routeBuilder->setController(NannyCrudController::class)->$$this->generateUrl();
+
+        return $this->redirect($url);
     }
 
     public function configureDashboard(): Dashboard
@@ -30,8 +35,7 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToUrl('Accueil', 'fa fa-home', '/');
-        yield MenuItem::linktoDashboard('Back Office', 'fa fa-lock');
+        yield MenuItem::linkToUrl('Back to the webiste', 'fa fa-home', '/');
         yield MenuItem::linkToCrud('Liste des nanny', 'fas fa-user', Nanny::class);
         yield MenuItem::linkToCrud('Comment', 'fas fa-comments', Comment::class);
     }
