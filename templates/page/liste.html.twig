@@ -11,7 +11,9 @@
 
 
 				<th scope="col">Name</th>
+				<th scope="col">Firstname</th>
 				<th scope="col">City</th>
+				<th scope="col">Zipcode</th>
 				<th scope="col">Age</th>
 			</tr>
 		</thead>
@@ -22,9 +24,15 @@
 				<tr>
 
 					<td>{{ nanny.getName()}}</td>
+					<td>{{ nanny.getFirstname()}}</td>
 					<td>{{ nanny.getCity() }}</td>
+					<td>{{ nanny.getZipcode()}}</td>
 					<td>{{ nanny.getAge() }}
 						ans</td>
+					<td>
+						<a href="/nanny/{{ nanny.id }}" class="btn btn-primary">View...
+							<a/></td>
+					</td>
 				</tr>
 
 

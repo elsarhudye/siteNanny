@@ -4,10 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Nanny;
 use App\Form\NannyType;
+use App\Repository\NannyRepository;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Twig\Environment;
 
 class NannyController extends AbstractController
 {
@@ -46,6 +49,15 @@ class NannyController extends AbstractController
         return $this->render('nanny/formNanny.html.twig', [
             'nanny' => $nanny,
             'form' => $form->createView(),
+        ]);
+    }
+    #[Route('/nanny/{id}', name: 'nanny')]
+    public function show(Environment $twig, Nanny $nanny, NannyRepository $nannyRepository): Response
+    {
+        $nannies = $nannyRepository->findOneBy(['id' => $nanny]);
+
+        return $this->render('nanny/show.html.twig', [
+            'nannies' => $nannies
         ]);
     }
 }
