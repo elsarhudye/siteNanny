@@ -37,7 +37,7 @@ class Nanny
     /**
      * @ORM\Column(type="boolean")
      */
-    private $valid;
+    private $valid = false;
 
     /**
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="nanny")

@@ -22,7 +22,7 @@ La validation du personnel se fera en amont par l'administrateur pour  simplifie
 ![Alt text](./github_media/img1.png?raw=true "SiteNanny ")
 &nbsp;
 
-- MCD
+- Modélisation de base de donnée
 ![Alt text](./github_media/img2.png?raw=true "SiteNanny ")
 &nbsp;
 

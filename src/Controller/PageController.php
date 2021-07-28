@@ -46,7 +46,8 @@ class PageController extends AbstractController
     #[Route('/recherche-une-nanny', name: 'page_recherche_une_nanny')]
     public function recherche(Request $request, NannyRepository $nannyRepository): Response
     {
-        $nannies = $nannyRepository->findAll();
+        //$nannies = $nannyRepository->findAll();
+        $nannies = $nannyRepository->findBy(['valid' => true], ['name' => 'ASC']);
 
         return $this->render('page/liste.html.twig', [
             'nannies' => $nannies
