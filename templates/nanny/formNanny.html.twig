@@ -3,7 +3,77 @@
 
 {% block body %}
 	<h2>Profil d'une nanny</h2>
-	<div>
-		{{form(form)}}
+	{{ form_start(form) }}
+	<form class="row g-3">
+
+		<div class="col-md-4">
+			{{ form_row(form.name, {
+				label: 'Name',
+				attr: { placeholder: 'Connors'},
+				row_attr: { class: "form-label"}
+				})
+			}}
+			{{ form_row(form.firstname, {
+				label: 'Firstname',
+				attr: { placeholder: 'Sarah'},
+				row_attr: { class: "form-label"}
+				})
+			}}
 		</div>
-	{% endblock %}
+		<div class="col-md-1">
+			{{ form_row(form.age, {
+				label: 'Age',
+				attr: { placeholder: '25'},
+				row_attr: { class: "form-label"}
+				})
+			}}
+		</div>
+		<div class="col-md-4">
+			{{ form_row(form.email, {
+				label: 'Email',
+				attr: { placeholder: 'sarah.connors@test.com'},
+				row_attr: { class: "form-label"}
+				})
+			}}
+			{{ form_row(form.password, {
+				label: 'Password',
+				attr: { placeholder: 'Secr&tp@ssw123rD'},
+				row_attr: { class: "form-label"}
+				})
+			}}
+		</div>
+		<div class="col-12">
+			{{ form_row(form.adress, {
+				label: 'Adress',
+				attr: { placeholder: '12 rue Imaginaire'},
+				row_attr: { class: "form-label"}
+				})
+			}}
+		</div>
+		<div class="col-md-2">
+			{{ form_row(form.city, {
+				label: 'City',
+				attr: { placeholder: 'Paris'},
+				row_attr: { class: "form-label"}
+				})
+			}}
+			{{ form_row(form.region, {
+				label: 'Region',
+				attr: { placeholder: 'Ile-de-France'},
+				row_attr: { class: "form-label"}
+				})
+			}}
+		</div>
+		<div class="col-md-2">
+			{{ form_row(form.zipcode, {
+				label: 'Zip Code',
+				attr: { placeholder: '75016'},
+				row_attr: { class: "form-label"}
+				})
+			}}
+		</div>
+		{{ form_end(form) }}
+
+	</form>
+
+{% endblock %}

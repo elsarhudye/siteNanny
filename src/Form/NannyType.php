@@ -14,13 +14,21 @@ class NannyType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('firstname')
             ->add('age')
+            ->add('email')
+            ->add('password')
+            ->add('adress')
             ->add('city')
+            ->add('zipcode')
+            ->add('region')
+            ->add('email')
+            ->add('password')
             //->add('valid')
             ->add('submit', SubmitType::class, [
-                'label' => "Enregistrer",
+                'label' => "Register",
                 'attr' => [
-                    'class' => "btn btn-primary btn-sm btn-sm m-2",
+                    'class' => "btn btn-primary",
                 ],
             ]);
     }

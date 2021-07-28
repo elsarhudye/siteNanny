@@ -55,7 +55,7 @@ class Nanny
     private $adress;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="int", length=100)
      */
     private $zipcode;
 
@@ -195,7 +195,7 @@ class Nanny
         return $this->zipcode;
     }
 
-    public function setZipcode(string $zipcode): self
+    public function setZipcode(int $zipcode): self
     {
         $this->zipcode = $zipcode;
 
