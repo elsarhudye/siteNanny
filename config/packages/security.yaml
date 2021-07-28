@@ -39,4 +39,4 @@ security:
     #Tout ce qui va commencer par /profil aura le role utulisateur
     #Tout ce qui va commencer par /nanny aura le role d'une nanny
          - { path: ^/admin, roles: ROLE_ADMIN }
-         - { path: ^/profil, roles: ROLE_USER }
+         - { path: ^/users, roles: ROLE_USER }

@@ -16,11 +16,16 @@ class NannyFixtures extends Fixture
         for ($i = 0; $i < 10; $i++) {
 
             $Nanny = new Nanny();
-            $Nanny->setName($faker->name);
+            $Nanny->setName($faker->lastName);
+            $Nanny->setFirstname($faker->firstNameFemale);
+            $Nanny->setEmail($faker->email);
+            $Nanny->setPassword($faker->password);
             $Nanny->setAge(rand(18, 30));
+            $Nanny->setAdress($faker->streetAddress);
             $Nanny->setCity($faker->city);
+            $Nanny->setZipcode($faker->postcode);
+            $Nanny->setRegion($faker->region);
             $Nanny->setValid(rand(0, 1));
-
             $manager->persist($Nanny);
         }
 
