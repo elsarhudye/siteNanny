@@ -55,7 +55,7 @@ class Nanny
     private $adress;
 
     /**
-     * @ORM\Column(type="int", length=100)
+     * @ORM\Column(type="integer", length=100)
      */
     private $zipcode;
 
