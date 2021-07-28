@@ -8,6 +8,7 @@ use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 
 
+
 class Userfixtures extends Fixture
 {
     public function load(ObjectManager $manager)
@@ -20,7 +21,7 @@ class Userfixtures extends Fixture
             $User = new User();
             $User->setName($faker->name);
             $User->setFirstname($faker->firstname);
-            $User->setPhonenumber((int)$faker->phoneNumber);
+            $User->setPhonenumber((int)$faker->mobileNumber);
             $User->setEmail($faker->email);
             $User->setPassword($faker->password);
             $manager->persist($User);
