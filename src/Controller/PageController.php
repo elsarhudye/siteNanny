@@ -46,14 +46,12 @@ class PageController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-    /*#[Route('/recherche-une-nanny', name: 'page_recherche_une_nanny')]
-    public function recherche(Request $request, NannyRepository $nannyRepository): Response
+    #[Route('', name: 'navCategory')]
+    public function navCategory(CategoryRepository $categoryRepository): Response
     {
-        //$nannies = $nannyRepository->findAll();
-        $nannies = $nannyRepository->findBy(['valid' => true], ['name' => 'ASC']);
-
-        return $this->render('page/liste.html.twig', [
-            'nannies' => $nannies
+        $categories = $categoryRepository->findAll();
+        return $this->render('shared/_nav.html.twig', [
+            'categories' => $categories
         ]);
-    }*/
+    }
 }
