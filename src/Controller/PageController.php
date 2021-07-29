@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\CommentType;
+use App\Repository\CategoryRepository;
 use App\Repository\NannyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,10 +13,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class PageController extends AbstractController
 {
     #[Route('/accueil', name: 'page_accueil')]
-    public function accueil(): Response
+    public function accueil(CategoryRepository $categoryRepository): Response
     {
+        $categories = $categoryRepository->findAll();
         return $this->render('page/accueil.html.twig', [
             'controller_name' => 'PageController je suis ici',
+            'categories' => $categories
         ]);
     }
 
@@ -43,7 +46,7 @@ class PageController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-    #[Route('/recherche-une-nanny', name: 'page_recherche_une_nanny')]
+    /*#[Route('/recherche-une-nanny', name: 'page_recherche_une_nanny')]
     public function recherche(Request $request, NannyRepository $nannyRepository): Response
     {
         //$nannies = $nannyRepository->findAll();
@@ -52,5 +55,5 @@ class PageController extends AbstractController
         return $this->render('page/liste.html.twig', [
             'nannies' => $nannies
         ]);
-    }
+    }*/
 }

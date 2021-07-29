@@ -74,6 +74,11 @@ class Nanny
      */
     private $password;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="nannies")
+     */
+    private $category;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -234,6 +239,18 @@ class Nanny
     public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

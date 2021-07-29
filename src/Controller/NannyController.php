@@ -52,11 +52,22 @@ class NannyController extends AbstractController
         ]);
     }
     #[Route('/nanny/{id}', name: 'nanny')]
-    public function show(Environment $twig, Nanny $nanny, NannyRepository $nannyRepository): Response
+    public function show(Nanny $nanny, NannyRepository $nannyRepository): Response
     {
-        $nannies = $nannyRepository->findOneBy(['id' => $nanny]);
+        $nanny = $nannyRepository->findOneBy(['id' => $nanny]);
 
+        //dd($nannies);
         return $this->render('nanny/show.html.twig', [
+            'nanny' => $nanny
+        ]);
+    }
+    #[Route('/liste', name: 'page_recherche_une_nanny')]
+    public function recherche(Request $request, NannyRepository $nannyRepository): Response
+    {
+        //$nannies = $nannyRepository->findAll();
+        $nannies = $nannyRepository->findBy(['valid' => true], ['name' => 'ASC']);
+
+        return $this->render('page/liste.html.twig', [
             'nannies' => $nannies
         ]);
     }

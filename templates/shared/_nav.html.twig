@@ -5,7 +5,6 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-
 			<div class="collapse navbar-collapse" id="navbarColor01">
 				<ul class="navbar-nav me-auto">
 					{% if  app.user %}
@@ -19,9 +18,10 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="#">Sortie d'école</a>
-								<a class="dropdown-item" href="#">Sortie de crèche</a>
-								<a class="dropdown-item" href="#">Temps plein</a>
+								{% for category in categories %}
+									<a class="dropdown-item" href="{{path('show_category', {'id': category.id})}}">{{category.name}}</a>
+
+								{% endfor %}
 								<div class="dropdown-divider"></div>
 
 							</div>

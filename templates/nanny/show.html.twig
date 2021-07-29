@@ -3,15 +3,24 @@
 
 {% block body %}
 
+
 	<h2>Voici
-		{{ nannies.getFirstname()}}
-		<hr/>
-		{{ nannies.getName()}}
-		<hr/>
-		{{ nannies.getCity() }}
-		<hr/>
-		{{ nannies.getZipcode()}}
-		<hr/>
-		{{ nannies.getAge() }}Ans
 		<h2/>
+
+		{{ nanny.firstname}}
+		<hr/>
+		{{ nanny.name}}
+		<hr/>
+		{{ nanny.city }}
+		<hr/>
+		{{ nanny.zipcode}}
+		<hr/>
+		{{ nanny.age }}Ans
+
+		<hr/>
+		{{ nanny.category}}
+
+		<div>
+			<a href="{{path('page_recherche_une_nanny')}}">Retour à la liste des nannies</a>
+		</div>
 	{% endblock %}
