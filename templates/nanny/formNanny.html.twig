@@ -8,11 +8,11 @@
 
 		<div class="col-md-4">
 			{{ form_row(form.name, {
-				label: 'Name',
-				attr: { placeholder: 'Connors'},
-				row_attr: { class: "form-label"}
-				})
-			}}
+										label: 'Name',
+										attr: { placeholder: 'Connors'},
+										row_attr: { class: "form-label"}
+										})
+									}}
 			{{ form_row(form.firstname, {
 				label: 'Firstname',
 				attr: { placeholder: 'Sarah'},
@@ -68,6 +68,13 @@
 			{{ form_row(form.zipcode, {
 				label: 'Zip Code',
 				attr: { placeholder: '75016'},
+				row_attr: { class: "form-label"}
+				})
+			}}
+		</div>
+		<div class="col-md-2">
+			{{ form_row(form.category, {
+				label: 'Category',
 				row_attr: { class: "form-label"}
 				})
 			}}
