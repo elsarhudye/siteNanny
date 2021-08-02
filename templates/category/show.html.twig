@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	Category
+	Garde:
 	{{category.name}}
 {% endblock %}
 
 {% block body %}
 	{#{{dump(categories)}}#}
-	<h1>Category
+	<h1>Garde:
 		{{category.name | upper}}</h1>
 	<table>
 		<thead>
 			<tr>
-				<th>id</th>
+				{#<th>id</th>#}
 				<th>name</th>
 				<th>nannies</th>
 			</tr>
@@ -23,6 +23,8 @@
 				<td>{{category.name}}</td>
 				<td>
 					{% for nanny in category.nannies %}
+						<br/>
+
 						{{nanny.name}}
 					{% endfor %}
 				</td>
