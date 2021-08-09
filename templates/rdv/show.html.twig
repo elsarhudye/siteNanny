@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RdvController!
+{% endblock %}
+
+{% block body %}
+	<div class='container'>
+		<table>
+			<thead>
+				<tr>
+
+					<th>nom</th>
+					<th>description</th>
+					<th>date et heure</th>
+					<th>la nanny</th>
+					<th>action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for rdv in rdvs %}
+					<tr>
+
+						<td>{{rdv.name}}</td>
+						<td>{{rdv.description}}</td>
+						<td>{{rdv.startTime | date('Y:m:d')}}
+							{{rdv.startTime | date('H:i:s')}}</td>
+						<td>{{rdv.createdBy}}</td>
+						<td>{{rdv.reservedBy}}</td>
+					</tr>
+				{% endfor %}
+
+			</tbody>
+		</table>
+	</div>
+{% endblock %}

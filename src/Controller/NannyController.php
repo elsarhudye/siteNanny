@@ -31,6 +31,7 @@ class NannyController extends AbstractController
         ]);
     }
     */
+
     #[Route('/devenir_une_nanny', name: 'creat_nanny')]
     public function creatNanny(Request $request): Response
     {
@@ -52,9 +53,9 @@ class NannyController extends AbstractController
         ]);
     }
     #[Route('/nanny/{id}', name: 'nanny')]
-    public function show(Nanny $nanny, NannyRepository $nannyRepository): Response
+    public function show(Nanny $nanny): Response
     {
-        $nanny = $nannyRepository->findOneBy(['id' => $nanny]);
+        //$nanny = $nannyRepository->findOneBy(['id' => $nanny]);
 
         //dd($nannies);
         return $this->render('nanny/show.html.twig', [

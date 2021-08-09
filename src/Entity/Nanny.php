@@ -79,11 +79,21 @@ class Nanny
      */
     private $category;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Rdv::class, mappedBy="createdBy")
+     */
+    private $rdvs;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->rdvs = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->getName();
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -166,10 +176,7 @@ class Nanny
 
         return $this;
     }
-    public function __toString()
-    {
-        return $this->getName();
-    }
+
 
     public function getFirstname(): ?string
     {
@@ -251,6 +258,36 @@ class Nanny
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Rdv[]
+     */
+    public function getRdvs(): Collection
+    {
+        return $this->rdvs;
+    }
+
+    public function addRdv(Rdv $rdv): self
+    {
+        if (!$this->rdvs->contains($rdv)) {
+            $this->rdvs[] = $rdv;
+            $rdv->setCreatedBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRdv(Rdv $rdv): self
+    {
+        if ($this->rdvs->removeElement($rdv)) {
+            // set the owning side to null (unless already changed)
+            if ($rdv->getCreatedBy() === $this) {
+                $rdv->setCreatedBy(null);
+            }
+        }
 
         return $this;
     }
