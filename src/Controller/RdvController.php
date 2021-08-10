@@ -15,12 +15,14 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class RdvController extends AbstractController
 {
     #[Route('/rdv/create', name: 'rdv_create')]
-    public function rdvCreate(Request $request, UserRepository $userRepository, NannyRepository $nannyRepository): Response
+    public function rdvCreate(Request $request): Response
     {
+        //dd($user);
         //dd($nannyRepository->findAll());
         $rdv = new Rdv();
         $form = $this->createForm(RdvFormType::class, $rdv);
@@ -39,7 +41,7 @@ class RdvController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-
+            // $rdv->setCreatedByUser($user);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($rdv);
             $entityManager->flush();

@@ -111,4 +111,11 @@ class Rdv
 
         return $this;
     }
+
+    public function setCreatedByUser(?User $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
 }
